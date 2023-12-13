@@ -9,10 +9,21 @@ jobs:
   sync:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout main repository
         uses: actions/checkout@v2
-      - name: Push to mirror
-        uses: wei/git-sync@v1
-        env:
-          GIT_SYNC_TOKEN: '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'
-          GIT_SYNC_DEST: 'AngelMascaro/PRDEPLOY1'
+        with:
+          token: ${{ secrets.TOKEN }}
+          path: https://github.com/AngelMascaro/PRDEPLOY2.git
+
+      - name: Checkout mirror repository
+        uses: actions/checkout@v2
+        with:
+          repository: AngelMascaro/PRDEPLOY1
+          token: ${{ secrets.TOKEN }}
+          path: https://github.com/AngelMascaro/PRDEPLOY1.git
+
+      - name: Sync repositories
+        run: |
+          cd mirror_repo
+          git pull --rebase ../main_repo main
+          git push
