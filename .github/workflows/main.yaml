@@ -1,4 +1,4 @@
-name: Simple Sync
+name: Ejemplo de flujo de trabajo
 
 on:
   push:
@@ -6,19 +6,18 @@ on:
       - main
 
 jobs:
-  sync_repository:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout código
         uses: actions/checkout@v2
 
-      - name: Add remote repository
-        run: |
-          git remote add dev_remote https://github.com/AngelMascaro/PRDEPLOY1.git
-          
-      - name: Push changes to dev repository
-        run: |
-          git push dev_remote main
+      - name: Push cambios
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GH_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          git commit -am "Auto-commit"
+          git push https://<TOKEN>@github.com/AngelMascaro/PRDEPLOY1.git HEAD:main
