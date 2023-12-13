@@ -13,4 +13,4 @@ jobs:
         uses: wei/git-sync@v1
         env:
           GIT_SYNC_TOKEN: ${{ secrets.TOKEN }}
-          GIT_SYNC_DEST: https://github.com/AngelMascaro/PRDEPLOY1.git
+          GIT_SYNC_DEST: AngelMascaro/PRDEPLOY1
