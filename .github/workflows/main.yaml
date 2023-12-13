@@ -14,5 +14,5 @@ jobs:
       - name: Push to mirror
         uses: wei/git-sync@v1
         env:
-          GIT_SYNC_TOKEN: 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
-          GIT_SYNC_DEST: AngelMascaro/PRDEPLOY1
+          GIT_SYNC_TOKEN: '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'
+          GIT_SYNC_DEST: 'AngelMascaro/PRDEPLOY1'
