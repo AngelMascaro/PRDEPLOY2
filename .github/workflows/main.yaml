@@ -22,7 +22,9 @@ jobs:
 
       - name: Sync repositories
         run: |
-          cd mirror_repo
+          cd main_repo
+          git fetch origin main
+          cd ../mirror_repo
           git fetch ../main_repo main
           git reset --hard FETCH_HEAD
           git push --force
