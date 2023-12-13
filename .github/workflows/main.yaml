@@ -1,21 +1,16 @@
-name: Ejemplo de flujo de trabajo
+name: Sync to Mirror Repository
 
 on:
   push:
     branches:
-      - main
+      - main # o la rama que quieras sincronizar
 
 jobs:
-  build:
+  sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout código
-        uses: actions/checkout@v2
-
-      - name: Push cambios
+      - name: Push to mirror
+        uses: wei/git-sync@v1
         env:
-          GH_TOKEN: ${{ secrets.TOKEN }}
-        run: |
-          git commit -am "Auto-commit"
-          git push https://<TOKEN>@github.com/AngelMascaro/PRDEPLOY1.git HEAD:main
+          GIT_SYNC_TOKEN: ${{ secrets.TOKEN }}
+          GIT_SYNC_DEST: https://github.com/AngelMascaro/PRDEPLOY1.git
