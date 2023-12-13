@@ -12,14 +12,12 @@ jobs:
       - name: Checkout main repository
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GIT_SYNC_TOKEN }}
           path: main_repo
 
       - name: Checkout mirror repository
         uses: actions/checkout@v2
         with:
           repository: AngelMascaro/PRDEPLOY1
-          token: ${{ secrets.TOKEN }}
           path: mirror_repo
 
       - name: Sync repositories
