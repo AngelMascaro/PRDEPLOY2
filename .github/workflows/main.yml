@@ -1,0 +1,24 @@
+name: Simple Sync
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync_repository:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Add remote repository
+        run: |
+          git remote add dev_remote https://github.com/AngelMascaro/PRDEPLOY1.git
+          
+      - name: Push changes to dev repository
+        run: |
+          git push dev_remote main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
