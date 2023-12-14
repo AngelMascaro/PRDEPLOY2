@@ -16,3 +16,4 @@ jobs:
         password: ${{ secrets.PASSWORD_SSH }}
         port: 22
         script: whoami
+                exit
