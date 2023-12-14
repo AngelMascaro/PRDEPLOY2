@@ -18,3 +18,4 @@ jobs:
         script: |
           cd /home/angel/Escritorio/pr_loc
           git pull origin main
+          ls -la
