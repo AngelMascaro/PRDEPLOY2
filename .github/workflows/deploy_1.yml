@@ -13,8 +13,8 @@ jobs:
       with:
         host: 192.168.1.71
         username: angel
-        password: ${{ secrets.PASSWORD_SSH }}
+        password: xaixaia
         port: 22
         script: |
-                cd /home/angel/Escritorio/pr_loc
-                git pull origin main
+          cd /home/angel/Escritorio/pr_loc
+          git pull origin main
