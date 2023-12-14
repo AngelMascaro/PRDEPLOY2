@@ -15,5 +15,6 @@ jobs:
         username: angel
         password: ${{ secrets.PASSWORD_SSH }}
         port: 22
-        script: cd /home/angel/Escritorio/pr_loc
+        script: |
+                cd /home/angel/Escritorio/pr_loc
                 git pull origin main
